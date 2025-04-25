@@ -66,10 +66,46 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse": {
+          "0%, 100%": { opacity: 1, transform: "scale(1)" },
+          "50%": { opacity: 0.8, transform: "scale(1.05)" },
+        },
+        "shimmer": {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "ping": {
+          "75%, 100%": { transform: "scale(2)", opacity: 0 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "float": "float 6s ease-in-out infinite",
+        "pulse": "pulse 2s infinite",
+        "shimmer": "shimmer 3s infinite",
+        "spin-slow": "spin-slow 3s linear infinite",
+        "ping": "ping 1s cubic-bezier(0, 0, 0.2, 1) infinite",
+      },
+      extend: {
+        colors: {
+          primary: {
+            DEFAULT: "#7928ca",
+            dark: "#5a1c9e",
+          },
+          secondary: {
+            DEFAULT: "#ff0080",
+            dark: "#cc0066",
+          },
+        },
       },
     },
   },
