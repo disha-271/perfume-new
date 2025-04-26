@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 
 interface NavigationBarProps {
   logo?: string;
@@ -40,22 +41,22 @@ const NavigationBar = ({
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center">
+        <Link to="/" className="flex items-center">
           <span className="text-2xl font-serif font-medium text-gray-900">
             Essentia
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           {links.map((link, index) => (
-            <a
+            <Link
               key={index}
-              href={link.href}
+              to={link.href}
               className="text-gray-700 hover:text-gray-900 font-light text-sm transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -77,14 +78,14 @@ const NavigationBar = ({
         <div className="md:hidden bg-white absolute top-full left-0 w-full shadow-md">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {links.map((link, index) => (
-              <a
+              <Link
                 key={index}
-                href={link.href}
+                to={link.href}
                 className="text-gray-700 hover:text-gray-900 font-light text-sm py-2 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
